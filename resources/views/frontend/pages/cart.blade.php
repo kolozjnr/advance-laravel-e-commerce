@@ -158,7 +158,7 @@
 	<section class="shop-services section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-6 col-12">
+				{{-- <div class="col-lg-3 col-md-6 col-12">
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-rocket"></i>
@@ -175,7 +175,7 @@
 						<p>Within 30 days returns</p>
 					</div>
 					<!-- End Single Service -->
-				</div>
+				</div> --}}
 				<div class="col-lg-3 col-md-6 col-12">
 					<!-- Start Single Service -->
 					<div class="single-service">
