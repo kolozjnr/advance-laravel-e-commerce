@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PaystackController;
+
     use Illuminate\Support\Facades\Route;
     use Illuminate\Support\Facades\Artisan;
     use App\Http\Controllers\AdminController;
@@ -112,10 +114,20 @@
     Route::resource('/comment', 'PostCommentController');
 // Coupon
     Route::post('/coupon-store', [CouponController::class, 'couponStore'])->name('coupon-store');
-// Payment
+// Payment paypal
     Route::get('payment', [PayPalController::class, 'payment'])->name('payment');
     Route::get('cancel', [PayPalController::class, 'cancel'])->name('payment.cancel');
     Route::get('payment/success', [PayPalController::class, 'success'])->name('payment.success');
+
+//payment paystack
+Route::post('/pay', [PaystackController::class, 'redirectToGateway'])->name('paystack');
+Route::get('/paystack/callback', [PaystackController::class, 'handleGatewayCallback'])->name('paystack.callback');
+
+Route::get('/paystack/form', function () {
+    return view('frontend.pages.paystackForm');
+})->name('paystackForm');
+
+
 
 
 // Backend section start

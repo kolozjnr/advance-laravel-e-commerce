@@ -140,6 +140,12 @@ class OrderController extends Controller
         if(request('payment_method')=='paypal'){
             return redirect()->route('payment')->with(['id'=>$order->id]);
         }
+        elseif(request('payment_method') == 'paystack'){
+            //send user to paystack for payment
+            //dd("we got here");
+            session(['order_id' => $order->id]);
+            return redirect()->route('paystackForm');
+        }
         else{
             session()->forget('cart');
             session()->forget('coupon');

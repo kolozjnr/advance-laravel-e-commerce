@@ -17,6 +17,7 @@
         "pusher/pusher-php-server": "^7.2",
         "spatie/laravel-newsletter": "^5.1",
         "srmklive/paypal": "^3.0",
+        "unicodeveloper/laravel-paystack": "^1.2",
         "unisharp/laravel-filemanager": "^2.6"
     },
     "require-dev": {
@@ -24,7 +25,7 @@
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^7.0",
+        "nunomaduro/collision": "^7.11",
         "phpunit/phpunit": "^10.0",
         "spatie/laravel-ignition": "^2.0"
     },
