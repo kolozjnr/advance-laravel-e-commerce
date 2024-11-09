@@ -16,7 +16,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Quantity</th>
-            <th>Charge</th>
+            {{-- <th>Charge</th> --}}
             <th>Total Amount</th>
             <th>Status</th>
             <th>Action</th>
@@ -29,7 +29,7 @@
             <td>{{$order->first_name}} {{$order->last_name}}</td>
             <td>{{$order->email}}</td>
             <td>{{$order->quantity}}</td>
-            <td>${{$order->shipping->price}}</td>
+            {{-- <td>${{$order->shipping->price}}</td> --}}
             <td>${{number_format($order->total_amount,2)}}</td>
             <td>
                 @if($order->status=='new')
@@ -78,10 +78,10 @@
                         <td>Order Status</td>
                         <td> : {{$order->status}}</td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <td>Shipping Charge</td>
                         <td> : $ {{$order->shipping->price}}</td>
-                    </tr>
+                    </tr> --}}
                     <tr>
                       <td>Coupon</td>
                       <td> : $ {{number_format($order->coupon,2)}}</td>

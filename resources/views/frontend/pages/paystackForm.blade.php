@@ -26,7 +26,10 @@
         <div class="container">
             <form id="paystackForm" action="{{ route('paystack') }}" method="POST">
                 @csrf
+                <span>You will be redirected automatically, <a href="#" id="autosubmit">Click here if you are not redirected</a></span>
                 <input type="hidden" name="order_id" value="{{ session('order_id') }}">
+                <input type="hidden" name="order_number" value="{{ session('order_number') }}">
+                <input type="hidden" name="amount" value="{{ session('amount') }}">
                 <button type="submit" style="display: none;">Submit</button>
             </form>
         </div>
@@ -87,5 +90,8 @@
     <script>
         // Auto-submit the form when the page loads
         document.getElementById('paystackForm').submit();
+        document.getElementById("autosubmit").addEventListener("click", function(e){
+            document.getElementById('paystackForm').submit();
+        })
     </script>
 @endpush

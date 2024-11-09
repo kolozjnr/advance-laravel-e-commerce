@@ -143,7 +143,10 @@ class OrderController extends Controller
         elseif(request('payment_method') == 'paystack'){
             //send user to paystack for payment
             //dd("we got here");
-            session(['order_id' => $order->id]);
+            session([
+                'order_id' => $order->id,
+                'order_number' => $order_data['order_number'],
+            ]);
             return redirect()->route('paystackForm');
         }
         else{

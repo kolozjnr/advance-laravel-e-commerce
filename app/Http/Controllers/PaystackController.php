@@ -5,6 +5,7 @@ use Exception;
 
 
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use NunoMaduro\Collision\Provider;
@@ -17,6 +18,8 @@ class PaystackController extends Controller
     {
         //dd("we got here");
         $orderId = $request->order_id;
+        $orderReference = $request->order_number;
+
        // Get the current user's cart items
         $cart = Cart::where('user_id', auth()->user()->id)->where('order_id', null)->get();
 
@@ -48,7 +51,7 @@ class PaystackController extends Controller
         $amountInKobo = $total * 100;
 
         // Generate an order reference
-        $orderReference = 'ORD-' . strtoupper(uniqid());
+        //$orderReference = 'ORD-' . strtoupper(uniqid());
 
         // Store this order reference to link it with the callback
         Cart::where('user_id', auth()->user()->id)->where('order_id', null)->update(['order_id' => session()->get('id')]);
@@ -82,8 +85,10 @@ class PaystackController extends Controller
 
         $paymentDetails = $paystack->getPaymentData();
 
-        dd($paymentDetails);
-        // Now you have the payment details,
+        //dd($paymentDetails);
+        $order_num= $paymentDetails['data']['reference'];
+        // Now you have the payment details, and update order status to paid
+        Order::where('order_number', $order_num)->where('user_id', auth()->user()->id)->update(['payment_status' => 'paid']);
         // you can store the authorization_code in your db to allow for recurrent subscriptions
         // you can then redirect or do whatever you want
     }
