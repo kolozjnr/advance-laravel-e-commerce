@@ -11,8 +11,8 @@
 				<div class="col-12">
 					<div class="bread-inner">
 						<ul class="bread-list">
-							<li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-							<li class="active"><a href="blog-single.html">About Us</a></li>
+							<li><a href="{{route('home')}}">Home<i class="ti-arrow-right"></i></a></li>
+							<li class="active"><a href="{{url('about-us')}}">About Us</a></li>
 						</ul>
 					</div>
 				</div>
@@ -33,7 +33,7 @@
 							<h3>Welcome To <span>Dictaugbah</span></h3>
 							<p>@foreach($settings as $data) {{$data->description}} @endforeach</p>
 							<div class="button">
-								<a href="{{route('blog')}}" class="btn">Our Blog</a>
+								{{-- <a href="{{route('blog')}}" class="btn">Our Blog</a> --}}
 								<a href="{{route('contact')}}" class="btn primary">Contact Us</a>
 							</div>
 						</div>
@@ -97,5 +97,5 @@
 	</section>
 	<!-- End Shop Services Area -->
 
-	@include('frontend.layouts.newsletter')
+	{{-- @include('frontend.layouts.newsletter') --}}
 @endsection

@@ -115,7 +115,7 @@
 	</section>
 	<!-- End Shop Newsletter -->
 	
-	@include('frontend.layouts.newsletter')
+	{{-- @include('frontend.layouts.newsletter') --}}
 	
 	
 	
